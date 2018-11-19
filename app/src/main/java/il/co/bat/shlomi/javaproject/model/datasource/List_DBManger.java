@@ -21,8 +21,8 @@ public class List_DBManger implements DB_manager {
 
 
     @Override
-    public int addRide(ContentValues ride) {
-        return 0;
+    public void addRide(ContentValues ride) {
+
     }
 
     @Override

@@ -14,6 +14,7 @@ public class Ride {
     String name;
     int celNumber;
     String email;
+
     public Ride(TypeOfRide typeOfRide, Location startLocation, Location endLocation, Time startTime, Time endTime, String name, int celNumber, String email) {
         this.typeOfRide = typeOfRide;
         this.startLocation = startLocation;
@@ -96,7 +97,7 @@ public class Ride {
     public void setEmail(String email) {
         this.email = email;
     }
-
+/*
     public Ride ContentValuesToStudent(ContentValues contentValues) {
         Ride ride  = new Ride();
         ride.setTypeOfRide(contentValues.get("typeOfRide"));
@@ -122,3 +123,5 @@ public class Ride {
             contentValues.put("email", ride.getEmail());
             return contentValues;
         }
+*/
+}
