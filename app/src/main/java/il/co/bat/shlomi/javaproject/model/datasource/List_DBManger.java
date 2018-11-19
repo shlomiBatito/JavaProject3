@@ -21,12 +21,29 @@ public class List_DBManger implements DB_manager {
 
 
     @Override
-    public void addRide(ContentValues ride) {
+    public void addRide(ContentValues ride)
+    {
 
     }
 
     @Override
     public List<Ride> getRides() {
         return rides;
+    }
+    public Ride ContentValuesToRide(ContentValues ride)
+    {
+        Ride RealRide=new Ride();
+        RealRide.setEmail(ride.getAsString("passangerEmail"));
+        RealRide.setCelNumber(ride.getAsInteger("passangerCel"));
+
+
+
+
+
+
+
+
+
+
     }
 }
