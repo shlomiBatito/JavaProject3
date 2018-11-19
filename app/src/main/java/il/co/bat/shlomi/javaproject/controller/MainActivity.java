@@ -5,6 +5,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import il.co.bat.shlomi.javaproject.R;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -20,6 +23,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         findViews();
+        // Write a message to the database
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = database.getReference("message");
+        myRef.setValue("Hello, World!");
     }
 
     @Override

@@ -60,7 +60,7 @@ public class Ride {
         return startTime;
     }
 
-    public void setStartTime(Long startTime) {
+    public void setStartTime(Time startTime) {
         this.startTime = startTime;
     }
 
