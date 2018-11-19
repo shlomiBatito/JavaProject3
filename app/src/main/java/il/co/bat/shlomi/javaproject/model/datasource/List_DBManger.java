@@ -18,17 +18,7 @@ public class List_DBManger implements DB_manager {
     static {
         rides=new ArrayList<>();
     }
-    /*FirebaseDatabase database = FirebaseDatabase.getInstance();
-    DatabaseReference myRef = database.getReference("message");
-    HashMap<String,Object> mop = new HashMap();*/
 
-    // @Override
-   /*  public int addStudent(ContentValues values) {
-       Ride ride=ContentValuesToRide(values);
-        rides.add(ride);
-        return ride.getCelNumber();
-
-    }*/
 
     @Override
     public int addRide(ContentValues ride) {
