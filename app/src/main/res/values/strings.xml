@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">JavaProject</string>
+    <string name="add_ride">Add Ride</string>
 </resources>

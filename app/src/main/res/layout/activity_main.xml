@@ -16,7 +16,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="AddRide"
-            android:text="Add Ride" />
+            android:text="@string/add_ride" />
 
     </LinearLayout>
 </ScrollView >
