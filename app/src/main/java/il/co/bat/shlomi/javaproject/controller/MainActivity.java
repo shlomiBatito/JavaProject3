@@ -9,10 +9,7 @@ import il.co.bat.shlomi.javaproject.R;
 
 public class MainActivity extends AppCompatActivity  {
     private Button addRideButton;
-    private void findViews() {
-        addRideButton = (Button) findViewById(R.id.addRideButton);
-
-    }
+    private void findViews() { }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -24,7 +21,7 @@ public class MainActivity extends AppCompatActivity  {
     public void AddRide(View v) {
        if(v== addRideButton)
         {
-            setContentView(R.layout.addride);
+            setContentView(R.layout.activity_main);
             findViews();
 
         }
