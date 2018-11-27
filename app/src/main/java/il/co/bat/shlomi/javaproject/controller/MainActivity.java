@@ -62,8 +62,6 @@ public class MainActivity extends Activity  implements View.OnClickListener{
 
             @Override
             public void onError(Status status) {
-                int a;
-
 
             }
         });
