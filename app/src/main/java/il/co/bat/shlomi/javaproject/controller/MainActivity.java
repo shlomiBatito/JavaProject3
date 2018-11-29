@@ -21,7 +21,6 @@ public class MainActivity extends Activity  implements View.OnClickListener{
     private PlaceAutocompleteFragment placeAutocompleteFragment2;
     private Button button;
     private TextView statusTextView;
-
     String from , to ;
 
 
