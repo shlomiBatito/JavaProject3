@@ -65,6 +65,16 @@
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent" >
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Enter your Source address"
+                android:textAllCaps="false"
+                android:textStyle="bold|italic"
+                app:fontFamily="casual" />
+
             <fragment
                 android:id="@+id/place_autocomplete_fragment1"
                 android:name="com.google.android.gms.location.places.ui.PlaceAutocompleteFragment"
@@ -79,6 +89,15 @@
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent" >
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Enter your Destination address"
+                android:textStyle="bold|italic"
+                app:fontFamily="casual" />
+
             <fragment
                 android:id="@+id/place_autocomplete_fragment2"
                 android:name="com.google.android.gms.location.places.ui.PlaceAutocompleteFragment"
@@ -91,24 +110,24 @@
         </TableRow>
         <TableRow android:layout_width="match_parent"
             android:layout_height="match_parent">
+
             <Button
                 android:id="@+id/button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Button"
+                android:text="My Current location"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/place_autocomplete_fragment2" />
 
-        </TableRow>
-        <TableRow>
-            <TextView
-                android:id="@+id/statusTextView"
-                android:layout_width="match_parent"
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="0"
-                android:text="TextView" />
+                android:text="Stop" />
+
         </TableRow>
+        <TableRow></TableRow>
     </TableLayout>
 
 </android.support.constraint.ConstraintLayout>
