@@ -1,7 +1,10 @@
 package il.co.bat.shlomi.javaproject.controller;
 
 import android.app.Activity;
+import android.content.Context;
 import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -22,11 +25,16 @@ public class MainActivity extends Activity  implements View.OnClickListener{
     private Button button;
     private TextView statusTextView;
     String from , to ;
+    private Button getLocationButton;
+    private Button stopUpdateButton;
 
 
     Location locationA = new Location("A");//= new Location(from);
     Location locationB = new Location("B") ;//= new Location(to);
-
+    // Acquire a reference to the system Location Manager
+    LocationManager locationManager;
+    // Define a listener that responds to location updates
+    LocationListener locationListener;
 
 
     /**
@@ -40,7 +48,34 @@ public class MainActivity extends Activity  implements View.OnClickListener{
         placeAutocompleteFragment2 = (PlaceAutocompleteFragment)getFragmentManager().findFragmentById( R.id.place_autocomplete_fragment2 );
         button = (Button)findViewById( R.id.button );
         statusTextView = (TextView)findViewById( R.id.statusTextView );
+       //two buttom of my location
+        getLocationButton = (Button) findViewById(R.id.getLocationButton);
+        getLocationButton.setOnClickListener(this);
 
+        stopUpdateButton = (Button) findViewById(R.id.stopUpdateButton);
+        stopUpdateButton.setOnClickListener(this);
+
+        locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
+        locationListener = new LocationListener() {
+            public void onLocationChanged(Location location) {
+                // Called when a new location is found by the network location provider.
+                //    Toast.makeText(getBaseContext(), location.toString(), Toast.LENGTH_LONG).show();
+                locationTextView.setText(getPlace(location));////location.toString());
+
+                // Remove the listener you previously added
+                //  locationManager.removeUpdates(locationListener);
+            }
+
+            public void onStatusChanged(String provider, int status, Bundle extras) {
+            }
+
+            public void onProviderEnabled(String provider) {
+            }
+
+            public void onProviderDisabled(String provider) {
+            }
+        };
+        //end
         button.setOnClickListener( this );
 
 
