@@ -82,6 +82,7 @@ public class MainActivity extends Activity  implements View.OnClickListener{
                 //  locationManager.removeUpdates(locationListener);
             }
 
+
             public void onStatusChanged(String provider, int status, Bundle extras) {
             }
 
