@@ -4,7 +4,6 @@ import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.Geocoder;
@@ -26,6 +25,8 @@ import com.google.android.gms.location.places.ui.PlaceSelectionListener;
 import java.io.IOException;
 import java.util.List;
 import java.util.Locale;
+
+import il.co.bat.shlomi.javaproject.R;
 
 
 public class MainActivity extends Activity  implements View.OnClickListener{
@@ -69,6 +70,26 @@ public class MainActivity extends Activity  implements View.OnClickListener{
 
         button.setOnClickListener( this );
 
+        // Define a listener that responds to location updates
+        locationListener = new LocationListener() {
+            public void onLocationChanged(Location location) {
+                // Called when a new location is found by the network location provider.
+                //    Toast.makeText(getBaseContext(), location.toString(), Toast.LENGTH_LONG).show();
+                //locationTextView.setText(getPlace(location));////location.toString());
+                placeAutocompleteFragment1.setText(getPlace(location));
+                // Remove the listener you previously added
+                //  locationManager.removeUpdates(locationListener);
+            }
+
+            public void onStatusChanged(String provider, int status, Bundle extras) {
+            }
+
+            public void onProviderEnabled(String provider) {
+            }
+
+            public void onProviderDisabled(String provider) {
+            }
+        };
 
         placeAutocompleteFragment1.setOnPlaceSelectedListener(new PlaceSelectionListener() {
             @Override
