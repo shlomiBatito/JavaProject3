@@ -3,4 +3,9 @@
     <string name="add_ride">Add Ride</string>
     <string name="name">Enter your full name</string>
     <string name="enter_your_address">Enter your Email</string>
+    <string name="enter_your_phone">Enter your Phone</string>
+    <string name="enter_your_source_address">Enter your Source address</string>
+    <string name="enter_your_destination_address">Enter your Destination address</string>
+    <string name="get_location">get location</string>
+    <string name="stop_update">Stop Update</string>
 </resources>

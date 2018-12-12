@@ -17,6 +17,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+
 import com.google.android.gms.common.api.Status;
 import com.google.android.gms.location.places.Place;
 import com.google.android.gms.location.places.ui.PlaceAutocompleteFragment;
@@ -35,7 +36,7 @@ public class MainActivity extends Activity  implements View.OnClickListener{
     private PlaceAutocompleteFragment placeAutocompleteFragment2;
     private Button button;
     private TextView statusTextView;
-    String from , to ;
+   // String from , to ;
     private Button getLocationButton;
     private Button stopUpdateButton;
 
@@ -57,7 +58,7 @@ public class MainActivity extends Activity  implements View.OnClickListener{
     private void findViews() {
         placeAutocompleteFragment1 = (PlaceAutocompleteFragment)getFragmentManager().findFragmentById( R.id.place_autocomplete_fragment1 );
         placeAutocompleteFragment2 = (PlaceAutocompleteFragment)getFragmentManager().findFragmentById( R.id.place_autocomplete_fragment2 );
-        button = (Button)findViewById(R.id.button );
+        //button = (Button)findViewById(R.id.button );
         statusTextView = (TextView)findViewById( R.id.statusTextView );
        //two buttom of my location
         getLocationButton = (Button) findViewById(R.id.getLocationButton);
@@ -76,7 +77,7 @@ public class MainActivity extends Activity  implements View.OnClickListener{
                 // Called when a new location is found by the network location provider.
                 //    Toast.makeText(getBaseContext(), location.toString(), Toast.LENGTH_LONG).show();
                 //locationTextView.setText(getPlace(location));////location.toString());
-                placeAutocompleteFragment1.setText(getPlace(location));
+               // placeAutocompleteFragment1.setText(getPlace(location));
                 // Remove the listener you previously added
                 //  locationManager.removeUpdates(locationListener);
             }
