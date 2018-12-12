@@ -17,7 +17,6 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-
 import com.google.android.gms.common.api.Status;
 import com.google.android.gms.location.places.Place;
 import com.google.android.gms.location.places.ui.PlaceAutocompleteFragment;
@@ -47,7 +46,6 @@ public class MainActivity extends Activity  implements View.OnClickListener{
     LocationManager locationManager;
     // Define a listener that responds to location updates
     LocationListener locationListener;
-
 
     /**
      * Find the Views in the layout<br />
