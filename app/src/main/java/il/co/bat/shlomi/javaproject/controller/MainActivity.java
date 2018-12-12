@@ -25,7 +25,6 @@ import com.google.android.gms.location.places.ui.PlaceSelectionListener;
 import java.io.IOException;
 import java.util.List;
 import java.util.Locale;
-
 import il.co.bat.shlomi.javaproject.R;
 
 
@@ -33,7 +32,6 @@ public class MainActivity extends Activity  implements View.OnClickListener{
     private Button addRideButton;
     private PlaceAutocompleteFragment placeAutocompleteFragment1;
     private PlaceAutocompleteFragment placeAutocompleteFragment2;
-    private Button button;
     private TextView statusTextView;
     String from , to ;
     private Button getLocationButton;
@@ -57,7 +55,6 @@ public class MainActivity extends Activity  implements View.OnClickListener{
     private void findViews() {
         placeAutocompleteFragment1 = (PlaceAutocompleteFragment)getFragmentManager().findFragmentById( R.id.place_autocomplete_fragment1 );
         placeAutocompleteFragment2 = (PlaceAutocompleteFragment)getFragmentManager().findFragmentById( R.id.place_autocomplete_fragment2 );
-        button = (Button)findViewById(R.id.button );
         statusTextView = (TextView)findViewById( R.id.statusTextView );
        //two buttom of my location
         getLocationButton = (Button) findViewById(R.id.getLocationButton);
@@ -68,7 +65,7 @@ public class MainActivity extends Activity  implements View.OnClickListener{
 
         locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
 
-        button.setOnClickListener( this );
+      //  button.setOnClickListener( this );
 
         // Define a listener that responds to location updates
         locationListener = new LocationListener() {
