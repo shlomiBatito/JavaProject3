@@ -1,6 +1,6 @@
 package il.co.bat.shlomi.javaproject.model.backend;
 
-import il.co.bat.shlomi.javaproject.model.datasource.List_DBManger;
+import il.co.bat.shlomi.javaproject.model.datasource.DBManager_Firebase;
 
 public class DB_ManagerFactory {
 
@@ -9,7 +9,7 @@ public class DB_ManagerFactory {
     public static DB_manager getBL()
     {
         if (db_manager == null)
-            db_manager = new List_DBManger();
+            db_manager = new DBManager_Firebase();
         return db_manager;
     }
 }

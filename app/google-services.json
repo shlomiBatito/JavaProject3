@@ -23,6 +23,14 @@
           }
         },
         {
+          "client_id": "307980010717-a1mnd2qfnn471kaonhm5j8ah8o0bgi4t.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "il.co.bat.shlomi.javaproject",
+            "certificate_hash": "eab9341c1919b39b1d4a40191d75194fecac2f49"
+          }
+        },
+        {
           "client_id": "307980010717-0ff707oqmr5m3j54riqjbjnilo53pc3k.apps.googleusercontent.com",
           "client_type": 3
         }
