@@ -26,17 +26,24 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Locale;
 import il.co.bat.shlomi.javaproject.R;
+import il.co.bat.shlomi.javaproject.model.backend.DB_ManagerFactory;
+import il.co.bat.shlomi.javaproject.model.datasource.DBManager_Firebase;
+import il.co.bat.shlomi.javaproject.model.entities.Ride;
+
+import static il.co.bat.shlomi.javaproject.R.*;
 
 
 public class MainActivity extends Activity  implements View.OnClickListener{
     private Button addRideButton;
     private PlaceAutocompleteFragment placeAutocompleteFragment1;
     private PlaceAutocompleteFragment placeAutocompleteFragment2;
-    private TextView statusTextView;
+    private TextView enteredName;
+    private TextView emailAddress;
+    private TextView Celnumber;
     String from , to ;
     private Button getLocationButton;
     private Button stopUpdateButton;
-
+    private Ride ride;
 
     Location locationA = new Location("A");//= new Location(from);
     Location locationB = new Location("B") ;//= new Location(to);
@@ -53,18 +60,20 @@ public class MainActivity extends Activity  implements View.OnClickListener{
      * (http://www.buzzingandroid.com/tools/android-layout-finder)
      */
     private void findViews() {
-        placeAutocompleteFragment1 = (PlaceAutocompleteFragment)getFragmentManager().findFragmentById( R.id.place_autocomplete_fragment1 );
-        placeAutocompleteFragment2 = (PlaceAutocompleteFragment)getFragmentManager().findFragmentById( R.id.place_autocomplete_fragment2 );
-        statusTextView = (TextView)findViewById( R.id.statusTextView );
+        placeAutocompleteFragment1 = (PlaceAutocompleteFragment)getFragmentManager().findFragmentById( id.place_autocomplete_fragment1 );
+        placeAutocompleteFragment2 = (PlaceAutocompleteFragment)getFragmentManager().findFragmentById( id.place_autocomplete_fragment2 );
        //two buttom of my location
-        getLocationButton = (Button) findViewById(R.id.getLocationButton);
+        getLocationButton = (Button) findViewById(id.getLocationButton);
         getLocationButton.setOnClickListener(this);
 
-        stopUpdateButton = (Button) findViewById(R.id.stopUpdateButton);
+        stopUpdateButton = (Button) findViewById(id.stopUpdateButton);
         stopUpdateButton.setOnClickListener(this);
 
         locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
 
+        emailAddress = (TextView) findViewById(id.enteredName);
+        Celnumber = (TextView) findViewById(id.Celnumber);
+        emailAddress = (TextView) findViewById(id.address);
       //  button.setOnClickListener( this );
 
         // Define a listener that responds to location updates
@@ -182,18 +191,12 @@ public class MainActivity extends Activity  implements View.OnClickListener{
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(layout.activity_main);
         findViews();
+
     }
 
-    public void AddRide(View v) {
-       if(v== addRideButton)
-        {
-            setContentView(R.layout.activity_main);
-            findViews();
 
-        }
-    }
 
     @Override
     public void onClick(View v) {
@@ -205,6 +208,17 @@ public class MainActivity extends Activity  implements View.OnClickListener{
             locationManager.removeUpdates(locationListener);
             stopUpdateButton.setEnabled(false);
             getLocationButton.setEnabled(true);
+        }
+        if(v== addRideButton)
+        {
+           ride.setCelNumber(Integer.parseInt(Celnumber.toString()));
+           ride.setName( enteredName.toString());
+           ride.setStartLocation( locationA);
+           ride.setEndLocation( locationB);
+           ride.setEmail( emailAddress.toString());
+
+            DB_ManagerFactory.getBL().addRide(ride);
+
         }
 
     }
