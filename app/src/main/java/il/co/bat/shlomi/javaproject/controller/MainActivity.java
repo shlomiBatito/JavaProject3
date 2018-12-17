@@ -4,6 +4,7 @@ import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.Geocoder;
@@ -12,6 +13,7 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -33,7 +35,12 @@ import il.co.bat.shlomi.javaproject.model.entities.Ride;
 import static il.co.bat.shlomi.javaproject.R.*;
 
 
+
+
+
+
 public class MainActivity extends Activity  implements View.OnClickListener{
+    private static int SPLASH_TIME = 2; //This is 4 seconds
     private Button addRideButton;
     private PlaceAutocompleteFragment placeAutocompleteFragment1;
     private PlaceAutocompleteFragment placeAutocompleteFragment2;
@@ -190,8 +197,19 @@ public class MainActivity extends Activity  implements View.OnClickListener{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
+
+
         super.onCreate(savedInstanceState);
         setContentView(layout.activity_main);
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                Intent mySuperIntent = new Intent(MainActivity.this, WelcomeActivity.class);
+                startActivity(mySuperIntent);
+                finish();
+            }
+        }, SPLASH_TIME);
+
         findViews();
 
     }
