@@ -5,184 +5,194 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:layout_marginLeft="10dp"
-    android:background="@color/colorAccent">
+    android:background="@color/colorAccent"
+    android:foreground="?android:attr/selectableItemBackground"
+    >
 
-<RelativeLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <TableLayout
-        android:layout_marginTop="120dp"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="16dp">
+        android:layout_height="match_parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="93dp">
 
-        <TableRow
+        <TableLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp">
+            android:layout_marginTop="120dp"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="16dp">
 
-            <EditText
-                android:id="@+id/enteredName"
-                style="@style/Widget.AppCompat.AutoCompleteTextView"
+            <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:drawableEnd="@drawable/person_icon"
-                android:hint="@string/name"
+                android:layout_margin="10dp">
 
-                android:inputType="textNoSuggestions"
-                tools:layout_editor_absoluteX="16dp"
-                tools:layout_editor_absoluteY="73dp"
-                tools:layout_marginLeft="10dp" />
-        </TableRow>
+                <EditText
+                    android:id="@+id/enteredName"
+                    style="@style/Widget.AppCompat.AutoCompleteTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableEnd="@drawable/person_icon"
+                    android:hint="@string/name"
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp">
+                    android:inputType="textNoSuggestions"
+                    tools:layout_editor_absoluteX="16dp"
+                    tools:layout_editor_absoluteY="73dp"
+                    tools:layout_marginLeft="10dp" />
+            </TableRow>
 
-            <EditText
-                android:id="@+id/address"
-                android:layout_width="221dp"
-                android:layout_height="wrap_content"
-                android:drawableEnd="@drawable/mail_icon"
-                android:hint="@string/enter_your_address"
-                android:inputType="textPersonName"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:srcCompat="@drawable/mail_icon"
-                tools:layout_editor_absoluteY="74dp"
-                tools:layout_marginLeft="10dp" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="10dp">
-
-            <EditText
-                android:id="@+id/Celnumber"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:drawableEnd="@drawable/phone_icon"
-                android:ems="10"
-                android:hint="Enter your Phone"
-                android:inputType="phone"
-                app:srcCompat="@drawable/phone_icon" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <TextView
-                android:id="@+id/textView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:drawableEnd="@drawable/ic_action_name"
-                android:text="Enter your Source address"
-                android:textAllCaps="false"
-                android:textStyle="bold|italic"
-                app:fontFamily="casual"
-                app:srcCompat="@drawable/ic_action_name" />
-
-            <fragment
-                android:id="@+id/place_autocomplete_fragment1"
-                android:name="com.google.android.gms.location.places.ui.PlaceAutocompleteFragment"
+            <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="0"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-        </TableRow>
+                android:layout_margin="10dp">
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+                <EditText
+                    android:id="@+id/address"
+                    android:layout_width="221dp"
+                    android:layout_height="wrap_content"
+                    android:drawableEnd="@drawable/mail_icon"
+                    android:hint="@string/enter_your_address"
+                    android:inputType="textPersonName"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
 
-            <TextView
-                android:id="@+id/textView2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:drawableEnd="@drawable/ic_action_name"
-                android:text="Enter your Destination address"
-                android:textStyle="bold|italic"
-                app:fontFamily="casual"
-                app:srcCompat="@drawable/ic_action_name" />
+                    tools:layout_editor_absoluteY="74dp"
+                    tools:layout_marginLeft="10dp" />
+            </TableRow>
 
-            <fragment
-                android:id="@+id/place_autocomplete_fragment2"
-                android:name="com.google.android.gms.location.places.ui.PlaceAutocompleteFragment"
+            <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/place_autocomplete_fragment1" />
+                android:layout_height="match_parent"
+                android:layout_margin="10dp">
 
-        </TableRow>
+                <EditText
+                    android:id="@+id/Celnumber"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableEnd="@drawable/phone_icon"
+                    android:ems="10"
+                    android:hint="Enter your Phone"
+                    android:inputType="phone"
+                    app:srcCompat="@drawable/phone_icon" />
+            </TableRow>
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-            <Button
-                android:id="@+id/getLocationButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="get location"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.501"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableEnd="@drawable/ic_action_name"
+                    android:text="Enter your Source address"
+                    android:textAllCaps="false"
+                    android:textStyle="bold|italic"
+                    app:fontFamily="casual"
+                    app:srcCompat="@drawable/ic_action_name" />
 
-            <Button
-                android:id="@+id/stopUpdateButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:enabled="false"
-                android:text="Stop Update"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.501"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/getLocationButton" />
+                <fragment
+                    android:id="@+id/place_autocomplete_fragment1"
+                    android:name="com.google.android.gms.location.places.ui.PlaceAutocompleteFragment"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </TableRow>
 
-        </TableRow>
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-    </TableLayout>
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableEnd="@drawable/ic_action_name"
+                    android:text="Enter your Destination address"
+                    android:textStyle="bold|italic"
+                    app:fontFamily="casual"
+                    app:srcCompat="@drawable/ic_action_name" />
 
-    <android.support.v7.widget.CardView
-        android:layout_marginTop="480dp"
-        android:layout_width="358dp"
-        android:layout_height="44dp"
-        android:background="@drawable/places_ic_clear"
-        android:clickable="false"
-        app:cardBackgroundColor="@android:color/holo_green_light"
-        app:cardCornerRadius="24dp"
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="386dp">
+                <fragment
+                    android:id="@+id/place_autocomplete_fragment2"
+                    android:name="com.google.android.gms.location.places.ui.PlaceAutocompleteFragment"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/place_autocomplete_fragment1" />
 
-        <TextView
-            android:id="@+id/addRide"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <Button
+                    android:id="@+id/getLocationButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="get location"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.501"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <Button
+                    android:id="@+id/stopUpdateButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:enabled="false"
+                    android:text="Stop Update"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.501"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/getLocationButton" />
+
+            </TableRow>
+
+        </TableLayout>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/addRideButton"
+            android:layout_width="358dp"
+            android:layout_height="44dp"
+            android:layout_marginTop="500dp"
+            android:background="@drawable/places_ic_clear"
             android:clickable="true"
-            android:gravity="center_vertical|center"
-            android:text="ADD"
-            android:textAppearance="@style/TextAppearance.AppCompat.Button"
-            android:textSize="36sp" />
-    </android.support.v7.widget.CardView>
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="331dp"
-        android:layout_height="117dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        app:srcCompat="@mipmap/ic_launcher" />
+            android:longClickable="true"
+            app:cardBackgroundColor="@android:color/holo_green_light"
+            app:cardCornerRadius="24dp"
+            tools:layout_editor_absoluteX="8dp"
+            tools:layout_editor_absoluteY="386dp">
 
-</RelativeLayout>
+            <TextView
+                android:id="@+id/addRideText"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clickable="true"
+                android:gravity="center_vertical|center"
+                android:text="ADD"
+                android:textAppearance="@style/TextAppearance.AppCompat.Button"
+                android:textSize="36sp" />
+        </android.support.v7.widget.CardView>
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="25dp"
+            app:srcCompat="@mipmap/ic_launcher" />
+
+    </RelativeLayout>
 
 
 

@@ -14,6 +14,7 @@ import android.location.LocationManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v7.widget.CardView;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -41,13 +42,13 @@ import static il.co.bat.shlomi.javaproject.R.*;
 
 public class MainActivity extends Activity  implements View.OnClickListener{
     private static int SPLASH_TIME = 2; //This is 4 seconds
-    private Button addRideButton;
+    private CardView addRideButton;
     private PlaceAutocompleteFragment placeAutocompleteFragment1;
     private PlaceAutocompleteFragment placeAutocompleteFragment2;
     private TextView enteredName;
     private TextView emailAddress;
     private TextView Celnumber;
-    String from , to ;
+   // String from , to ;
     private Button getLocationButton;
     private Button stopUpdateButton;
     private Ride ride;
@@ -77,12 +78,12 @@ public class MainActivity extends Activity  implements View.OnClickListener{
         stopUpdateButton.setOnClickListener(this);
 
         locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
-
+        addRideButton=(CardView)findViewById(id.addRideButton);
         emailAddress = (TextView) findViewById(id.enteredName);
         Celnumber = (TextView) findViewById(id.Celnumber);
         emailAddress = (TextView) findViewById(id.address);
       //  button.setOnClickListener( this );
-
+        findViewById(id.addRideButton).setOnClickListener(this);
         // Define a listener that responds to location updates
         locationListener = new LocationListener() {
             public void onLocationChanged(Location location) {
@@ -201,7 +202,8 @@ public class MainActivity extends Activity  implements View.OnClickListener{
 
         super.onCreate(savedInstanceState);
         setContentView(layout.activity_main);
-        new Handler().postDelayed(new Runnable() {
+
+    /*    new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
                 Intent mySuperIntent = new Intent(MainActivity.this, WelcomeActivity.class);
@@ -209,7 +211,7 @@ public class MainActivity extends Activity  implements View.OnClickListener{
                 finish();
             }
         }, SPLASH_TIME);
-
+*/
         findViews();
 
     }
@@ -236,7 +238,7 @@ public class MainActivity extends Activity  implements View.OnClickListener{
            ride.setEmail( emailAddress.toString());
 
             DB_ManagerFactory.getBL().addRide(ride);
-
+            enteredName.setText("shalom rosner");
         }
 
     }
