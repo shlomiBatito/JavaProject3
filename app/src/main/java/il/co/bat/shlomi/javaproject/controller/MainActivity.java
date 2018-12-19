@@ -6,6 +6,8 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
@@ -17,9 +19,9 @@ import android.os.Handler;
 import android.support.v7.widget.CardView;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.google.android.gms.common.api.Status;
 import com.google.android.gms.location.places.Place;
 import com.google.android.gms.location.places.ui.PlaceAutocompleteFragment;
@@ -41,14 +43,15 @@ import static il.co.bat.shlomi.javaproject.R.*;
 
 
 public class MainActivity extends Activity  implements View.OnClickListener{
-    private static int SPLASH_TIME = 2; //This is 4 seconds
+
     private CardView addRideButton;
     private PlaceAutocompleteFragment placeAutocompleteFragment1;
     private PlaceAutocompleteFragment placeAutocompleteFragment2;
+
     private TextView enteredName;
     private TextView emailAddress;
     private TextView Celnumber;
-   // String from , to ;
+
     private Button getLocationButton;
     private Button stopUpdateButton;
     private Ride ride;
@@ -82,8 +85,8 @@ public class MainActivity extends Activity  implements View.OnClickListener{
         emailAddress = (TextView) findViewById(id.enteredName);
         Celnumber = (TextView) findViewById(id.Celnumber);
         emailAddress = (TextView) findViewById(id.address);
-      //  button.setOnClickListener( this );
-        findViewById(id.addRideButton).setOnClickListener(this);
+        //  button.setOnClickListener( this );
+       addRideButton.setOnClickListener(this);
         // Define a listener that responds to location updates
         locationListener = new LocationListener() {
             public void onLocationChanged(Location location) {
@@ -149,10 +152,6 @@ public class MainActivity extends Activity  implements View.OnClickListener{
 
     }
 
-
-
-
-
     public String getPlace(Location location) {
 
         Geocoder geocoder = new Geocoder(this, Locale.getDefault());
@@ -203,14 +202,14 @@ public class MainActivity extends Activity  implements View.OnClickListener{
         super.onCreate(savedInstanceState);
         setContentView(layout.activity_main);
 
-    /*    new Handler().postDelayed(new Runnable() {
+     /* new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
                 Intent mySuperIntent = new Intent(MainActivity.this, WelcomeActivity.class);
                 startActivity(mySuperIntent);
                 finish();
             }
-        }, SPLASH_TIME);
+        }, 2550);
 */
         findViews();
 
@@ -231,15 +230,40 @@ public class MainActivity extends Activity  implements View.OnClickListener{
         }
         if(v== addRideButton)
         {
-           ride.setCelNumber(Integer.parseInt(Celnumber.toString()));
-           ride.setName( enteredName.toString());
+            enteredName.setText("shalom rosner");
+           ride.setCelNumber(Celnumber.getText().toString());
+           ride.setName( enteredName.getText().toString());
            ride.setStartLocation( locationA);
            ride.setEndLocation( locationB);
-           ride.setEmail( emailAddress.toString());
+           ride.setEmail( emailAddress.getText().toString());
 
-            DB_ManagerFactory.getBL().addRide(ride);
-            enteredName.setText("shalom rosner");
+           DB_ManagerFactory.getBL().addRide(ride);
+
         }
 
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

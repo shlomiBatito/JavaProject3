@@ -12,10 +12,10 @@ public class Ride {
     Time startTime;
     Time endTime;
     String name;
-    int celNumber;
+    String celNumber;
     String email;
 
-    public Ride(TypeOfRide typeOfRide, Location startLocation, Location endLocation, Time startTime, Time endTime, String name, int celNumber, String email) {
+    public Ride(TypeOfRide typeOfRide, Location startLocation, Location endLocation, Time startTime, Time endTime, String name, String celNumber, String email) {
         this.typeOfRide = typeOfRide;
         this.startLocation = startLocation;
         this.endLocation = endLocation;
@@ -81,11 +81,11 @@ public class Ride {
         this.name = name;
     }
 
-    public int getCelNumber() {
+    public String getCelNumber() {
         return celNumber;
     }
 
-    public void setCelNumber(int celNumber) {
+    public void setCelNumber(String celNumber) {
         this.celNumber = celNumber;
     }
 
