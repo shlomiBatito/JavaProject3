@@ -13,21 +13,22 @@ import il.co.bat.shlomi.javaproject.R;
 import static il.co.bat.shlomi.javaproject.R.*;
 
 public class WelcomeActivity extends AppCompatActivity {
-    private  int mProgressStatus = 100;
+    private  int mProgressStatus = 0;
     private ProgressBar mProgressBar;
-    private Handler mHandler;
+    private Handler mHandler=new Handler() ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(layout.activity_welcome);
         mProgressBar = (ProgressBar) findViewById(id.progressBar);
-        mProgressBar.getProgressDrawable().setColorFilter(Color.RED, PorterDuff.Mode.SRC_IN);
+        mProgressBar.getProgressDrawable().setColorFilter(Color.GREEN, PorterDuff.Mode.SRC_IN);
 
         new Thread(new Runnable() {
             @Override
             public void run() {
-                while (mProgressStatus < 100){
+                while (mProgressStatus < 100)
+                {
                     mProgressStatus++;
                     android.os.SystemClock.sleep(50);
                     mHandler.post(new Runnable() {

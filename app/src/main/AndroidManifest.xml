@@ -20,14 +20,14 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyBQIvMNsccUpeeKuBUeHjQzAeNVzftk77Y" />
 
-        <activity android:name=".controller.MainActivity">
+        <activity android:name=".controller.WelcomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".controller.WelcomeActivity"></activity>
+        <activity android:name=".controller.MainActivity"></activity>
     </application>
 
 </manifest>

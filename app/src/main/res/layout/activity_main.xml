@@ -177,8 +177,9 @@
                 android:id="@+id/addRideText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="135dp"
                 android:clickable="true"
-                android:gravity="center_vertical|center"
+                android:gravity="center"
                 android:text="ADD"
                 android:textAppearance="@style/TextAppearance.AppCompat.Button"
                 android:textSize="36sp" />

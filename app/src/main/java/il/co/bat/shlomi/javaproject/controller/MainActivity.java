@@ -80,9 +80,10 @@ public class MainActivity extends Activity  implements View.OnClickListener{
         stopUpdateButton = (Button) findViewById(id.stopUpdateButton);
         stopUpdateButton.setOnClickListener(this);
 
+
         locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
         addRideButton=(CardView)findViewById(id.addRideButton);
-        emailAddress = (TextView) findViewById(id.enteredName);
+        enteredName = (TextView) findViewById(id.enteredName);
         Celnumber = (TextView) findViewById(id.Celnumber);
         emailAddress = (TextView) findViewById(id.address);
         //  button.setOnClickListener( this );
@@ -230,7 +231,8 @@ public class MainActivity extends Activity  implements View.OnClickListener{
         }
         if(v== addRideButton)
         {
-            enteredName.setText("shalom rosner");
+            ride = new Ride();
+
            ride.setCelNumber(Celnumber.getText().toString());
            ride.setName( enteredName.getText().toString());
            ride.setStartLocation( locationA);
@@ -238,6 +240,10 @@ public class MainActivity extends Activity  implements View.OnClickListener{
            ride.setEmail( emailAddress.getText().toString());
 
            DB_ManagerFactory.getBL().addRide(ride);
+           enteredName.setText(null);
+            Celnumber.setText(null);
+            emailAddress.setText(null);
+
 
         }
 
