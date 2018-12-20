@@ -22,6 +22,7 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import com.google.android.gms.common.api.Status;
 import com.google.android.gms.location.places.Place;
 import com.google.android.gms.location.places.ui.PlaceAutocompleteFragment;
@@ -30,6 +31,7 @@ import com.google.android.gms.location.places.ui.PlaceSelectionListener;
 import java.io.IOException;
 import java.util.List;
 import java.util.Locale;
+
 import il.co.bat.shlomi.javaproject.R;
 import il.co.bat.shlomi.javaproject.model.backend.DB_ManagerFactory;
 import il.co.bat.shlomi.javaproject.model.datasource.DBManager_Firebase;
@@ -38,11 +40,7 @@ import il.co.bat.shlomi.javaproject.model.entities.Ride;
 import static il.co.bat.shlomi.javaproject.R.*;
 
 
-
-
-
-
-public class MainActivity extends Activity  implements View.OnClickListener{
+public class MainActivity extends Activity implements View.OnClickListener {
 
     private CardView addRideButton;
     private PlaceAutocompleteFragment placeAutocompleteFragment1;
@@ -57,7 +55,7 @@ public class MainActivity extends Activity  implements View.OnClickListener{
     private Ride ride;
 
     Location locationA = new Location("A");//= new Location(from);
-    Location locationB = new Location("B") ;//= new Location(to);
+    Location locationB = new Location("B");//= new Location(to);
     // Acquire a reference to the system Location Manager
     LocationManager locationManager;
     // Define a listener that responds to location updates
@@ -71,9 +69,9 @@ public class MainActivity extends Activity  implements View.OnClickListener{
      * (http://www.buzzingandroid.com/tools/android-layout-finder)
      */
     private void findViews() {
-        placeAutocompleteFragment1 = (PlaceAutocompleteFragment)getFragmentManager().findFragmentById( id.place_autocomplete_fragment1 );
-        placeAutocompleteFragment2 = (PlaceAutocompleteFragment)getFragmentManager().findFragmentById( id.place_autocomplete_fragment2 );
-       //two buttom of my location
+        placeAutocompleteFragment1 = (PlaceAutocompleteFragment) getFragmentManager().findFragmentById(id.place_autocomplete_fragment1);
+        placeAutocompleteFragment2 = (PlaceAutocompleteFragment) getFragmentManager().findFragmentById(id.place_autocomplete_fragment2);
+        //two buttom of my location
         getLocationButton = (Button) findViewById(id.getLocationButton);
         getLocationButton.setOnClickListener(this);
 
@@ -82,12 +80,12 @@ public class MainActivity extends Activity  implements View.OnClickListener{
 
 
         locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
-        addRideButton=(CardView)findViewById(id.addRideButton);
+        addRideButton = (CardView) findViewById(id.addRideButton);
         enteredName = (TextView) findViewById(id.enteredName);
         Celnumber = (TextView) findViewById(id.Celnumber);
         emailAddress = (TextView) findViewById(id.address);
         //  button.setOnClickListener( this );
-       addRideButton.setOnClickListener(this);
+        addRideButton.setOnClickListener(this);
         // Define a listener that responds to location updates
         locationListener = new LocationListener() {
             public void onLocationChanged(Location location) {
@@ -168,9 +166,8 @@ public class MainActivity extends Activity  implements View.OnClickListener{
                 return cityName;
             }
 
-            return "no place: \n ("+location.getLongitude()+" , "+location.getLatitude()+")";
-        }
-        catch(
+            return "no place: \n (" + location.getLongitude() + " , " + location.getLatitude() + ")";
+        } catch (
                 IOException e)
 
         {
@@ -178,6 +175,7 @@ public class MainActivity extends Activity  implements View.OnClickListener{
         }
         return "IOException ...";
     }
+
     @SuppressLint("MissingPermission")
     @Override
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
@@ -199,23 +197,13 @@ public class MainActivity extends Activity  implements View.OnClickListener{
     protected void onCreate(Bundle savedInstanceState) {
 
 
-
         super.onCreate(savedInstanceState);
         setContentView(layout.activity_main);
 
-     /* new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                Intent mySuperIntent = new Intent(MainActivity.this, WelcomeActivity.class);
-                startActivity(mySuperIntent);
-                finish();
-            }
-        }, 2550);
-*/
+
         findViews();
 
     }
-
 
 
     @Override
@@ -229,22 +217,21 @@ public class MainActivity extends Activity  implements View.OnClickListener{
             stopUpdateButton.setEnabled(false);
             getLocationButton.setEnabled(true);
         }
-        if(v== addRideButton)
-        {
+        if (v == addRideButton) {
             ride = new Ride();
 
-           ride.setCelNumber(Celnumber.getText().toString());
-           ride.setName( enteredName.getText().toString());
-           ride.setStartLocation( locationA);
-           ride.setEndLocation( locationB);
-           ride.setEmail( emailAddress.getText().toString());
+            ride.setCelNumber(Celnumber.getText().toString());
+            ride.setName(enteredName.getText().toString());
+            ride.setStartLocation(locationA);
+            ride.setEndLocation(locationB);
+            ride.setEmail(emailAddress.getText().toString());
 
-           DB_ManagerFactory.getBL().addRide(ride);
-           enteredName.setText(null);
+            DB_ManagerFactory.getBL().addRide(ride);
+            enteredName.setText(null);
             Celnumber.setText(null);
             emailAddress.setText(null);
-
-
+         //   placeAutocompleteFragment1.setText(getPlace(null));
+         //   placeAutocompleteFragment2.setText(getPlace(null));
         }
 
     }

@@ -6,25 +6,26 @@
     android:layout_height="match_parent"
     android:background="@drawable/welcome"
     tools:context=".controller.WelcomeActivity">
-<RelativeLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    tools:layout_editor_absoluteY="93dp">
 
-    <ProgressBar
-        android:id="@+id/progressBar"
-        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
-        android:layout_width="336dp"
-        android:layout_height="85dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="360dp"
-        android:indeterminate="false"
-        android:max="100"
-        android:progress="1"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="12dp"
-        tools:layout_editor_absoluteY="353dp" />
-</RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="0dp">
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="85dp"
+            android:layout_marginTop="450dp"
+            android:indeterminate="false"
+            android:max="100"
+            android:progress="1"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="12dp"
+            tools:layout_editor_absoluteY="353dp" />
+    </RelativeLayout>
 </android.support.constraint.ConstraintLayout>
