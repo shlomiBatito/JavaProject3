@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">JavaProject</string>
+    <string name="add_ride">Ajouter un tour</string>
+    <string name="name">Entrez votre nom complet</string>
+    <string name="enter_your_address">Entrer votre Email</string>
+    <string name="enter_your_phone">Entrez votre téléphone</string>
+    <string name="get_location">obtenir l\'emplacement</string>
+    <string name="stop_update">Arrêter la mise à jour</string>
+    <string name="add">AJOUTER</string>
+    <string name="enter_your_destination_address">entrez votre adresse de destination</string>
+    <string name="enter_your_source_address">entrez votre adresse source</string>
+</resources>

@@ -15,12 +15,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="0dp">
+        tools:layout_editor_absoluteY="0dp"
+        tools:ignore="MissingConstraints">
 
         <TableLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="140dp"
+            android:layout_below="@+id/imageView"
             tools:ignore="MissingConstraints"
             tools:layout_editor_absoluteX="0dp"
             tools:layout_editor_absoluteY="16dp">
@@ -39,6 +40,7 @@
                     android:background="@android:color/background_light"
 
                     android:drawableEnd="@drawable/person_icon"
+                    android:drawableRight="@drawable/person_icon"
                     android:hint="@string/name"
                     android:inputType="textNoSuggestions"
                     tools:layout_editor_absoluteX="16dp"
@@ -58,10 +60,11 @@
                     android:layout_height="wrap_content"
                     android:background="@android:color/background_light"
                     android:drawableEnd="@drawable/mail_icon"
+                    android:drawableRight="@drawable/mail_icon"
                     android:hint="@string/enter_your_address"
-                    android:inputType="textPersonName"
-                    app:layout_constraintEnd_toEndOf="parent"
+                    android:inputType="textEmailAddress"
 
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     tools:layout_editor_absoluteY="74dp"
                     tools:layout_marginLeft="10dp" />
@@ -79,6 +82,7 @@
                     android:layout_height="wrap_content"
                     android:background="@android:color/background_light"
                     android:drawableEnd="@drawable/phone_icon"
+                    android:drawableRight="@drawable/phone_icon"
                     android:ems="10"
                     android:hint="@string/enter_your_phone"
                     android:inputType="phone"
@@ -95,7 +99,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:drawableEnd="@drawable/ic_action_name"
-                    android:text="Enter your Source address"
+                    android:drawableRight="@drawable/ic_action_name"
+                    android:text="@string/enter_your_source_address"
                     android:textAllCaps="false"
                     android:textStyle="bold|italic"
                     app:fontFamily="casual"
@@ -130,7 +135,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:drawableEnd="@drawable/ic_action_name"
-                    android:text="Enter your Destination address"
+                    android:drawableRight="@drawable/ic_action_name"
+                    android:text="@string/enter_your_destination_address"
                     android:textStyle="bold|italic"
                     app:fontFamily="casual"
                     app:srcCompat="@drawable/ic_action_name" />
@@ -156,68 +162,76 @@
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:gravity="left|right|fill_horizontal|start">
+                android:gravity="center"/>
 
-                <Button
-                    android:id="@+id/getLocationButton"
-                    android:layout_width="254dp"
+            <Button
+                android:id="@+id/getLocationButton"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+
+                android:onClick="onClick"
+                android:text="@string/get_location"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.501"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/stopUpdateButton"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:enabled="false"
+                android:text="@string/stop_update"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.501"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/getLocationButton" />
+
+            <TableRow
+
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center">
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/addRideButton"
+                    android:layout_width="match_parent"
                     android:layout_height="match_parent"
 
-                    android:onClick="onClick"
-                    android:text="@string/get_location"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.501"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:clickable="true"
 
-                <Button
-                    android:id="@+id/stopUpdateButton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:enabled="false"
-                    android:text="@string/stop_update"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.501"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/getLocationButton" />
+                    android:contextClickable="true"
+                    android:focusable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    app:cardBackgroundColor="@android:color/holo_green_light"
+                    app:cardCornerRadius="24dp"
+                    tools:ignore="UnusedAttribute"
+                    tools:layout_editor_absoluteX="8dp"
+                    tools:layout_editor_absoluteY="386dp">
 
+                    <TextView
+                        android:id="@+id/addRideText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="135dp"
+                        android:clickable="true"
+
+                        android:gravity="center"
+                        android:text="@string/add"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Button"
+                        android:textSize="36sp"
+                        android:focusable="true" />
+                </android.support.v7.widget.CardView>
             </TableRow>
-
 
         </TableLayout>
 
-        <android.support.v7.widget.CardView
-            android:id="@+id/addRideButton"
-            android:layout_width="358dp"
-            android:layout_height="44dp"
-            android:layout_marginLeft="25dp"
-            android:layout_marginTop="580dp"
-            android:clickable="true"
 
-            android:contextClickable="true"
-            android:focusable="true"
-            android:foreground="?android:attr/selectableItemBackground"
-            app:cardBackgroundColor="@android:color/holo_green_light"
-            app:cardCornerRadius="24dp"
-            tools:layout_editor_absoluteX="8dp"
-            tools:layout_editor_absoluteY="386dp">
-
-            <TextView
-                android:id="@+id/addRideText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="135dp"
-                android:clickable="true"
-                android:gravity="center"
-                android:text="ADD"
-                android:textAppearance="@style/TextAppearance.AppCompat.Button"
-                android:textSize="36sp" />
-        </android.support.v7.widget.CardView>
 
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="match_parent"
-            android:layout_height="136dp"
+            android:layout_height="123dp"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="4dp"
@@ -227,4 +241,4 @@
 
 
 
- </android.support.constraint.ConstraintLayout>
+</android.support.constraint.ConstraintLayout>

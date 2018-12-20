@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">JavaProject</string>
+    <string name="add_ride">הוסף נסיעה</string>
+    <string name="name">הכנס את השם המלא</string>
+    <string name="enter_your_address">הכנס את המייל</string>
+    <string name="enter_your_phone">הכנס את הטלפון שלך</string>
+    <string name="get_location">קבל את מיקומך</string>
+    <string name="stop_update">הפסק עידכון</string>
+    <string name="add">הוסף</string>
+    <string name="enter_your_destination_address">הכנס את היעד</string>
+    <string name="enter_your_source_address">הכנס את מיקום ההתחלתי</string>
+</resources>

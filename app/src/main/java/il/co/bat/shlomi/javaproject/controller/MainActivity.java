@@ -13,6 +13,7 @@ import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
+import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -200,7 +201,15 @@ public class MainActivity extends Activity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(layout.activity_main);
 
-
+     /* new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                Intent mySuperIntent = new Intent(MainActivity.this, WelcomeActivity.class);
+                startActivity(mySuperIntent);
+                finish();
+            }
+        }, 2550);
+*/
         findViews();
 
     }
@@ -226,12 +235,27 @@ public class MainActivity extends Activity implements View.OnClickListener {
             ride.setEndLocation(locationB);
             ride.setEmail(emailAddress.getText().toString());
 
-            DB_ManagerFactory.getBL().addRide(ride);
-            enteredName.setText(null);
-            Celnumber.setText(null);
-            emailAddress.setText(null);
-         //   placeAutocompleteFragment1.setText(getPlace(null));
-         //   placeAutocompleteFragment2.setText(getPlace(null));
+
+            new AsyncTask<Void, Void, Void>() {
+                /*@Override
+                protected void onPostExecute(Long idResult) {
+                    super.onPostExecute(idResult);
+                    if (idResult>0)
+                        Toast.makeText(getBaseContext(),"insert id: " + idResult, Toast.LENGTH_LONG).show();
+                }*/
+                @Override
+                protected Void doInBackground(Void... voids) {
+                    return DB_ManagerFactory.getBL().addRide(ride);
+                }
+            }.execute();
+
+
+            enteredName.setText("");
+            Celnumber.setText("");
+            emailAddress.setText("");
+            placeAutocompleteFragment1.setText("");
+            placeAutocompleteFragment2.setText("");
+
         }
 
     }

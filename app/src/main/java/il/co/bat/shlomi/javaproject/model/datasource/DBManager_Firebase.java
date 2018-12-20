@@ -16,10 +16,10 @@ public  class DBManager_Firebase implements DB_manager {
     }
 
     @Override
-    public void addRide(final Ride ride) {
+    public Void addRide(final Ride ride) {
         //rides.add(ride);
         String key = ride.getEmail();
         RidesRef.child(key).setValue(ride);
-        // return null;
+         return null;
     }
 }

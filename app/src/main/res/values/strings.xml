@@ -6,4 +6,7 @@
     <string name="enter_your_phone">Enter your Phone</string>
     <string name="get_location">get location</string>
     <string name="stop_update">Stop Update</string>
+    <string name="add">ADD</string>
+    <string name="enter_your_destination_address">enter your destination address</string>
+    <string name="enter_your_source_address">enter your source address</string>
 </resources>
